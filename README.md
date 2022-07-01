@@ -9,6 +9,13 @@ Outras atividades foram publicadas e descritas nas postagens dentro do Linkedin.
 * [x] Lista de exercícios
 
 
+> Sites HTML Step By Step 
+
+* [x] Site Café
+* [x] Node Shop 
+* [x] Site Hospital 
+* [x] Site Groco 
+
 > Exercícios de Lógica de programação em JAVA
 
 * [x] Lista de exercícios

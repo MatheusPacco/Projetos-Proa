@@ -1,0 +1,883 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+:root {
+    --orange: #ff7800; 
+    --black: #130f40;
+    --light-color: #666;
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    --border: .2rem solid rgba(0,0,0,.1);
+    --outline: .1rem solid rgba(0,0,0,.1);
+    --outline-hover: .2rem solid var(--black);
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+html {
+    font-family: 'Poppins', sans-serif;
+}
+
+section,footer {
+    padding: 2rem 9%;
+}
+
+body{
+    background-color: hsl(0, 0%, 90%);
+}
+
+header {
+    padding: 2rem 9%;
+    background-color: #FFF;
+    box-shadow: var(--box-shadow);
+    position: fixed;
+    /* por mais que seja fixed, outros elementos fixed irão mensurar que ele existe */ 
+    top: 0; right: 0; left: 0;
+    /*Também poderia utilizar o 100vw, porém acho essa forma mais interessante*/ 
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    z-index: 200;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #130f40;
+}
+
+.logo i {
+    color: var(--orange);
+}
+
+.logo:hover{
+    transform: scale(1.2);
+}
+
+.navbar a{
+    color: black;
+    margin: 0px 0.6rem;
+}
+
+.navbar a:hover {
+    color: var(--orange);
+    padding-bottom: 0.4rem;
+    border-bottom: 3px solid var(--orange);
+}
+
+.funcionalidades i{
+    font-size: 1.2rem;
+    margin: 0 0.2rem;
+    background-color: hsl(0, 0%, 95%);
+    padding: 0.8rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+}
+
+.funcionalidades i:hover{
+    color: #FFF;
+    background-color: #ff7800;
+    box-shadow: 4px 4px 16px hsl(28, 100%, 50%, 0.60);
+}
+
+.fa-shopping-cart::after {
+    content: "";
+    text-align: center;
+    font-size: 0.5rem;
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: #ff7800;
+    border: 3px solid hsl(0, 0%, 95%);
+    top: 22%;
+}
+
+/*Ou tambpem ..funcionalidades i:nth-of-type(1)*/ 
+.funcionalidades .fa-bars{
+    display: none;
+}
+
+.pesquisa-modal {
+    position: absolute;
+    width: 28rem;
+    top: 120%; right: 0; 
+    margin-right: 1.5rem; 
+    background-color: #FFF;
+    padding: 1rem 2em;
+    border-radius: 0.5rem;
+    border: 2px solid var(--orange);
+
+    display: none;
+    justify-content: space-between;
+}
+
+.ativo {
+    display: flex;
+    opacity:initial;
+}
+
+.carrinho-modal.ativo-carrinho {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+.pesquisa-modal i{
+    font-size: 1.2rem;
+    color: #999;
+    cursor: pointer;
+}
+
+.pesquisa-modal i:hover{
+    color: #ff7800;
+}
+
+/* Modal de compra */
+.carrinho-modal  {
+    visibility: hidden;
+    transform: translateX(200%);
+    opacity: 0;
+    background-color: #FFF;
+    padding: 1rem;
+    position: absolute;
+    margin-right: 1.5rem;
+    top: 120%; right: 0;
+    border-radius: 0.4rem;
+    border: 2px solid var(--orange);
+
+    width: 380px;
+
+}
+
+.Carrinho-Vazio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.Carrinho-Vazio h3{
+    color: var(--black);
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.Carrinho-Vazio p{
+    color: #999;
+    text-align: center;
+    line-height: 1.8;
+}
+
+/* FIM MODAL DE COMPRA */
+
+/* COMEÇO PRODUTO LISTADO */
+.Container-Produto-Listado {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.container-interno-produto {
+    display: flex;
+    flex-direction: column;
+}
+
+.Container-Produto-Listado img {
+    width: 8rem;
+    background-color: hsl(0, 0%, 98%);
+    border-radius: 0.6rem;
+}
+
+.Container-Produto-Listado h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--orange);
+}
+
+.Container-Produto-Listado p {
+    font-size: 1.1rem;
+    color: #666;
+    font-style: italic;
+}
+
+.Container-Produto-Listado i {
+   font-size: 1rem;
+   padding: 0.6rem;
+   background-color: hsl(0, 0%, 98%);
+   border-radius: 0.2rem;
+   cursor: pointer;
+   color: #666;
+   margin-right: 1.2rem;
+}
+
+.Container-Produto-Listado i:hover {
+   color: #FFF;
+   background-color: hsl(11, 95%, 60%);
+}
+
+.btn-principal-compra {
+    background-color:hsl(0, 0%, 80%);
+    font-family:'Poppins', sans-serif;
+    padding: .8rem 2rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.btn-principal-compra:hover  {
+    background-color: #ff7800;
+    box-shadow: 4px 4px 16px hsl(28, 100%, 50%, 0.36);
+}
+
+/* FIM PRODUTO LISTADO */
+.Login-modal {
+    position: absolute;
+    opacity: 0;
+
+    background-color: #FFF;
+    top: 120%; right: -100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.4rem;
+    border: 2px solid var(--orange);
+    box-shadow: 0px 12px 64px hsl(0, 0%, 0%,0.12);
+    padding: 1rem 1.2rem;
+    width: 380px;
+}
+
+.Login-modal.ativo-login {
+    transition: 350ms ease-in-out;
+    right: 0;
+    margin-right: 1.5rem;
+    opacity: 1;
+    visibility: inherit;
+}
+
+.Login-modal h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+    margin: 16px auto 1.6rem auto ;
+}
+
+.Login-modal label {
+    color: #999;
+    margin-bottom: 0.5rem;
+}
+
+.email-input, .senha-input {
+    padding: 1rem;
+    width: 100%;
+    background-color: #eee;
+    border-radius: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.email-input::placeholder, .senha-input::placeholder{
+    font-family:'Poppins', sans-serif;
+    font-size: 0.9rem;
+}
+
+.email-input:hover, .senha-input:hover {
+    background-color: #ff7800;
+    color: #FFF;
+}
+
+.link-login {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 1rem;
+}
+
+.link-login a{
+    color: #ff7800;
+    font-weight: bold;
+}
+
+.btn-login {
+    background-color:#ff7800;
+    font-family:'Poppins', sans-serif;
+    padding: .8rem 2rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.btn-login:hover,.btn-criar-conta:hover  {
+    box-shadow: 4px 4px 16px hsl(28, 100%, 50%, 0.36);
+}
+
+.btn-criar-conta {
+    border: 2px solid var(--orange);
+    background-color: #FFF;
+    color: #ff7800;
+    padding: .8rem 1rem;
+    margin-left: 0.8rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* FIM Modal de compra */
+
+/* HOME */
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url(image/banner-bg.webp) no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 15rem;
+    padding-bottom: 8em;
+}   
+
+/* O texto principal também poderia estar dentro de uma div, para que houvesse um
+controle maior de largura...*/ 
+.home h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+.home p{
+    font-weight: 300;
+    color: #666;
+    font-size: 1.2rem;
+    max-width: 50%;
+    padding: 0.5rem 0px;
+    line-height: 1.8rem;
+    text-align: center;
+}
+
+.btn-principal {
+    margin-top: 0.6rem;
+    display: inline-block;
+    padding: .8rem 2rem;
+    font-size: 1.2rem;
+    border-radius: .5rem;
+    border: 2px solid var(--black);
+    color: var(--black);
+    cursor: pointer;
+    background: none;
+    text-align: center;
+}
+
+.btn-principal:hover {
+    color: white;
+    background-color: var(--orange);
+    border: 2px solid var(--orange);
+    box-shadow: 4px 4px 16px hsl(28, 100%, 50%, 0.60);
+}
+/* FIM HOME */
+
+/* Começo Serviços */
+.title {
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.container-servicos span{
+    background: var(--orange);
+    color: #fff;
+    display: inline-block;
+    padding: .8rem 3rem;
+    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+} 
+
+.box-servicos{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap:1.5rem;
+}
+
+.servicos {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: space-between;
+    padding:3rem 2rem;
+    background: #fff;
+    outline: var(--outline);
+    outline-offset: -0.5rem;
+    /* não conhecia esse tipo de borda */
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+.servicos:hover {
+    outline: var(--outline-hover);
+    outline-offset: 0rem;
+}
+
+.servicos img{
+    width: 12rem;
+}
+.servicos h3{
+    color:var(--orange);
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.servicos p{
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Fim Serviços */
+
+/* COMEÇO PRODUTOS */
+
+.products span{
+    background: var(--orange);
+    color: #fff;
+    display: inline-block;
+    padding: .8rem 3rem;
+    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+} 
+
+.products .product-slider{
+    padding:0.5rem;
+}
+
+.products .product-slider:first-child{
+    margin-bottom: 1.5rem;
+}
+
+.products .product-slider .box{
+    background: #fff;
+    border-radius: .5rem;
+    text-align: center;
+    padding:3rem 2rem;
+    outline-offset: -1rem;
+    outline: var(--outline);
+    box-shadow: var(--box-shadow);
+    transition: .2s linear;
+}
+
+.products .product-slider .box:hover{
+    outline-offset: 0rem;
+    outline: var(--outline-hover);
+}
+
+.products .product-slider .box img{
+    height:12rem;
+}
+
+.products .product-slider .box h3{
+    font-size: 2rem;
+    color:var(--black);
+}
+
+.products .product-slider .box .price{
+    font-size: 1.2rem;
+    color:var(--light-color);
+    padding:.5rem 0;
+}
+
+.products .product-slider .box .stars i{
+    font-size: 1rem;
+    color:var(--orange);
+    padding:.5rem 0;
+}
+/* FIM PRODUTOS */ 
+
+/* Começo categorias */
+
+.container-categorias span{
+    background: var(--orange);
+    color: #fff;
+    display: inline-block;
+    padding: .8rem 3rem;
+    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+} 
+
+
+.box-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap:1.5rem;
+}
+
+.box-categorias .box{
+    background-color: #FFF;
+    padding: 1rem;
+}
+
+.box-categorias .box img{
+    width: 12rem;
+}
+
+.box-categorias .box h3{
+    color:var(--orange);
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.box-categorias .box p{
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+.box-categorias .box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.4rem;
+    justify-content: space-between;
+    padding:2rem 2rem;
+    background: #fff;
+    outline: var(--outline);
+    outline-offset: -0.5rem;
+    /* não conhecia esse tipo de borda */
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+.box-categorias .box .btn-principal {
+    margin-top: 0.6rem;
+    display: inline-block;
+    padding: .8rem 1.5rem;
+    font-size: 0.9rem;
+    border-radius: .5rem;
+    border: 2px solid var(--black);
+    color: var(--black);
+    cursor: pointer;
+    background: none;
+    text-align: center;
+}
+
+.box-categorias .box .btn-principal:hover {
+    color: white;
+    background-color: var(--orange);
+    border: 2px solid var(--orange);
+    box-shadow: 4px 4px 16px hsl(28, 100%, 50%, 0.60);
+}
+
+/* fim categorias */
+
+/* Começo Categorias */ 
+.review span{
+    background: var(--orange);
+    color: #fff;
+    display: inline-block;
+    padding: .8rem 3rem;
+    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+} 
+
+.review .review-slider{
+    padding:1rem;
+}
+
+.review .review-slider .box{
+    background: #fff;
+    border-radius: .5rem;
+    text-align: center;
+    padding:2.5rem 1.5rem;
+    outline-offset: -0.6rem;
+    outline: var(--outline);
+    box-shadow: var(--box-shadow);
+    transition: .2s linear;
+}
+
+.review .review-slider .box:hover{
+    outline:var(--outline-hover);
+    outline-offset: 0rem;
+}
+
+.review .review-slider .box img{
+    height:6rem;
+    width:6rem;
+    border-radius: 50%;
+}
+
+.review .review-slider .box p{
+    padding:1rem 0;
+    line-height: 1.8;
+    color:var(--light-color);
+    font-size: 1rem;
+}
+
+.review .review-slider .box h3{
+    padding-bottom: .5rem;
+    color:var(--black);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.review .review-slider .box .stars i{
+    color:var(--orange);
+    font-size: 1rem;
+}
+
+/* FIM Categorias */ 
+
+/* COMEÇO DO BLOG */
+
+.box-blogs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.5rem;
+}
+
+.blogs-partes{
+    background-color: #FFF;
+    border-radius: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blogs-partes img {
+    width: 100%;
+    border-radius: 0.4rem 0.4rem  0px 0px;
+}
+
+.blogs-partes-conteudo {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.blogs-partes-conteudo .icons {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 4px solid hsl(0, 0%, 95%);
+    padding: 0.5rem 0px;
+    margin-bottom: 0.6rem;
+}
+
+.blogs-partes-conteudo .icons a{
+    font-size: 0.8rem;
+    color: #ff7800; 
+}
+
+.blogs-partes-conteudo h3{
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ff7800; 
+    line-height: 1.6;
+}
+
+.blogs-partes-conteudo p{
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.blogs-partes-conteudo .btn-principal {
+    margin-top: 0.6rem;
+    display: inline-block;
+    padding: .8rem 1.5rem;
+    font-size: 0.9rem;
+    border-radius: .5rem;
+    border: 2px solid var(--black);
+    color: var(--black);
+    cursor: pointer;
+    background: none;
+    text-align: center;
+}
+
+.blogs-partes-conteudo .btn-principal:hover {
+    color: white;
+    background-color: var(--orange);
+    border: 2px solid var(--orange);
+    box-shadow: 4px 4px 16px hsl(28, 100%, 50%, 0.60);
+}
+/* FIM DO BLOG */
+
+/* COMECO FOOTER */
+
+.footer {
+    background-color: #FFF;
+}
+
+.blogs .title span{
+    background: var(--orange);
+    color: #fff;
+    display: inline-block;
+    padding: .8rem 3rem;
+    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+} 
+
+
+.box-footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 1rem;
+}
+
+.box-footer .box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.box-footer .box h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.box-footer .box p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin: 0.8rem 0px;
+}
+
+.box-footer .box a {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color:#666;
+    padding: 0.8rem 0px;
+}
+
+.links:hover {
+    padding-left: 1.4rem !important;
+    font-weight: bold;
+    color: var(--orange) !important;
+}
+
+.box .compartilhar a{
+    line-height: 1rem;
+    border-radius: .5rem;
+    font-size: 1.2rem;
+    margin-right: .2rem;
+    background: #eee;
+    text-align: center;
+    height: 3rem;
+    width: 3rem;
+}
+
+
+.box .compartilhar a:hover{
+    background-color: var(--orange);
+    color: #fff;
+}
+
+.box-footer .box a i{
+    color: var(--orange);
+}
+
+.box-footer .box .email {
+    padding: 1rem;
+    width: 100%;
+    background-color: #eee;
+    border-radius: 0.5rem;
+}
+
+
+.box-footer .box .btn-principal {
+    margin-top: 0.6rem;
+    display: inline-block;
+    padding: .6rem 1.4rem;
+    font-size: 1rem;
+    border-radius: .5rem;
+    border: 2px solid #999;
+    color: #999;
+    cursor: pointer;
+    background: none;
+    text-align: center;
+    margin-bottom: 0.8rem;
+}
+
+.box-footer .box .btn-principal:hover {
+    color: white;
+    background-color: var(--orange);
+    border: 2px solid var(--orange);
+    box-shadow: 4px 4px 16px hsl(28, 100%, 50%, 0.60);
+}
+
+/* FIM FOOTER */
+
+/* Primeira Responsividade */ 
+@media (max-width: 1080px) {
+    html {
+        font-size: 90%;
+    }
+    header{
+        padding: 2rem ;
+        font-size: 1rem;
+    }
+
+    .ativo{
+        margin-right: 2rem;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    section{
+        padding: 2rem;
+    }
+
+    .funcionalidades .fa-bars{
+        display: initial;
+    }
+
+    .navbar {
+        position: absolute;
+        background-color: #FFF;
+        top: 115%; right: -110%;
+        margin-right: 2rem; 
+        padding: 0.8rem 0rem;
+        border: 2px solid var(--orange);
+        border-radius: 0.5rem;
+    }
+
+    .navbar.show {
+        right: 0;
+    }
+
+    .navbar a{
+        width: 248px;
+        display: block;
+        padding: 1rem;
+        color: hsl(0, 0%, 20%);
+    }
+
+    .navbar a:hover{
+        transition: 300ms;
+        border: none;
+        color: #FFF;
+        padding: 1rem;
+        background-color: var(--orange);
+        border-radius: 0.5rem;
+        box-shadow: 4px 4px 16px hsl(28, 100%, 50%,0.60);
+    }
+
+    .home {
+        text-align: center;
+    }
+
+    .home h1{
+        line-height: 1.4;
+    }
+    .home p {
+        max-width: 100%;
+    }
+
+}

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title> Coffee </title>
+    <meta name="description" content="Um Ecommerce de café artesanal!">
+    <meta author="Matheus Pacco Silva">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="keywords" content="Coffee, Ecommerce-Coffee, Drink">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- Adicionando os links de ícones e CSS -->
+    <script src="Coffee.js"></script>
+    <link rel="shortcut icon" href="Imagens-Coffe/logo.png">
+    <link rel="stylesheet" href="Coffe.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+<header id="cabesalho">
+    <div class="div-logoTipo">   <a href="index.html"><img src="Imagens-Coffe/logo.png" class="logoTipo" alt="Logotipo da empresa de café, sendo representado por uma xícara e o nome da empresa na parte inferior"></a>
+    </div>
+    <div id="menu" class="menu">
+        <a href="#" class="navBar"> Home</a>
+        <a href="#sobre-Nos" class="navBar"> Sobre nós</a>
+        <a href="#menu-produtos">Menu</a>
+        <a href="#produtos" class="navBar"> Produtos</a>
+        <a href="#" class="navBar"> Avaliações</a>
+        <a href="#" class="navBar"> Contato</a>
+        <a href="#" class="navBar"> Blog</a>
+    </div>
+    <div class="icons">
+        <i class="fa-solid fa-magnifying-glass" id="Botao-Pesquisa" alt="Busca"></i>
+        <i class="fa-solid fa-cart-shopping" id="Botao-Shop" alt="Shop"></i>
+        <i class="fa-solid fa-bars" id="Botao-Menu"></i>
+    </div>
+
+    <!--  CAIXA DE PESQUISA PARA O USUÁRIO!  -->
+    <div class="Form-Pesquisa" id="Form-Pesquisa">
+        <input type="search" id="Caixa-Pesquisa" placeholder="Faça uma pesquisa aqui!">
+        <label for="search-box" class="fas fa-search"></label>
+    </div>
+     <!--  FIM CAIXA DE PESQUISA PARA O USUÁRIO!  -->
+
+    <div class="Card-Itens-Container ScaleContainer" id="Card-Itens-Container">
+        <div name="1" class="Card-Itens">
+            <span class="fas fa-times" id="Deletar-Elemento" onclick="DeletarElemento(1)"></span>
+            <img src="/Imagens-Coffe/cart-item-1.png" alt="">
+            <div class="Conteudo">
+                <h3> Cart Item 01 </h3>
+                <div class="preco-produto"> R$ 25,00</div>
+            </div>
+        </div>
+        
+        <div name="2" class="Card-Itens">
+            <span class="fas fa-times"  id="Deletar-Elemento" onclick="DeletarElemento(2)"></span>
+            <img src="/Imagens-Coffe/cart-item-2.png" alt="">
+            <div class="Conteudo">
+                <h3> Cart Item 02 </h3>
+                <div class="preco-produto"> R$ 25,00</div>
+            </div>
+        </div>
+
+        <div name="3" class="Card-Itens">
+            <span class="fas fa-times" id="Deletar-Elemento" onclick="DeletarElemento(3)"></span>
+            <img src="/Imagens-Coffe/cart-item-3.png" alt="">
+            <div class="Conteudo">
+                <h3> Cart Item 03 </h3>
+                <div class="preco-produto"> R$ 25,00</div>
+            </div>
+        </div>
+
+        <!-- # <-- no HREF leva direto para a navbar! -->
+        <a href="#" class="Botao-Check" id="Botao-Check"> Continuar a Compra </a>
+    </div>
+</header>
+
+
+<!-- A HOME DA PÁGINA COMEÇA AQUI -->
+<section id="Container-Site">
+    <Article class="Container-Principal">
+        <div>
+            <h1 title="título do site" class="Titulo">UM CAFÉZINHO FRESCO PELA MANHÃ</h1>
+            <h3 class="Sub-Titulo"> O melhor café que você pode tomar para acordar 100%</h3>
+            <button class="Botao-Principal"> Compre o seu agora</button>
+        </div>
+    </Article>
+</section>
+
+<section id="sobre-Nos" class="Container-sobre-Nos">
+    <h2> <span> Sobre</span> nós</h2>
+    <div class="sobre-Nos">
+        <img src="Imagens-Coffe/about-img.jpeg" alt="">
+        <div class="Texto-sobre-Nos">
+            <h3>O que faz nosso café ser tão especial?</h3>
+            <p> O nosso café é focado em você, desenvolvedor web, que adora tomar um delicioso café no estresse diário de refatoração de código!</p> 
+            <p> Prove o nosso café e você verá os melhores resultados quem dev pode ter em desempenho!</p>
+            <button class="Botao-Principal"> Saiba mais</button>
+        </div>
+    </div>
+</section>
+
+<!-- MENU DE CAFÉS ITENS -->
+
+<section id="menu-produtos" class="Container-Menu">
+    <h2> Nosso <span> Menu </span></h2>
+    <div class="Menu-Cafes">
+        <div name="4" class="Menu-Cafes-Itens">
+            <img src="Imagens-Coffe/menu-1.png" alt="">
+            <h3> Café Artesanal </h3>
+            <p class="preço-Cafe"> R$ 25,00</p>
+            <span class="Cafe-Desconto"> 30.99</span>
+            <button class="Botao-Secundario" onclick="AtivandoProduto(0)"> Adicionar <i class="fa-solid fa-cart-shopping button"></i></button>
+        </div>
+
+        <div name="5" class="Menu-Cafes-Itens">
+            <img src="Imagens-Coffe/menu-2.png" alt="">
+            <h3> Café Artesanal </h3>
+            <p class="preço-Cafe"> R$ 25,00 </p>
+            <span class="Cafe-Desconto"> 30.99</span>
+            <button class="Botao-Secundario" onclick="AtivandoProduto(1)"> Adicionar <i class="fa-solid fa-cart-shopping button"></i></button>
+        </div>
+
+        <div name="6" class="Menu-Cafes-Itens">
+            <img src="Imagens-Coffe/menu-3.png" alt="">
+            <h3> Café Artesanal </h3>
+            <p class="preço-Cafe"> R$ 25,00</p>
+            <span class="Cafe-Desconto"> 30.99</span>
+            <button class="Botao-Secundario" onclick="AtivandoProduto(2)"> Adicionar <i class="fa-solid fa-cart-shopping button"></i></button>
+        </div>
+
+        <div name="7" class="Menu-Cafes-Itens">
+            <img src="Imagens-Coffe/menu-4.png" alt="">
+            <h3> Café Artesanal </h3>
+            <p class="preço-Cafe"> R$ 25,00 </p>
+            <span class="Cafe-Desconto"> 30.99</span>
+            <button class="Botao-Secundario" onclick="AtivandoProduto(3)"> Adicionar <i class="fa-solid fa-cart-shopping button"></i></button>
+        </div>
+
+        <div name="8" class="Menu-Cafes-Itens">
+            <img src="Imagens-Coffe/menu-5.png" alt="">
+            <h3> Café Artesanal </h3>
+            <p class="preço-Cafe"> R$ 25,00 </p>
+            <span class="Cafe-Desconto"> 30.99</span>
+            <button class="Botao-Secundario" onclick="AtivandoProduto(4)"> Adicionar <i class="fa-solid fa-cart-shopping button"></i></button>
+        </div>
+
+        <div name="9" class="Menu-Cafes-Itens">
+            <img src="Imagens-Coffe/menu-6.png" alt="">
+            <h3> Café Artesanal </h3>
+            <p class="preço-Cafe"> R$ 25,00 </p>
+            <span class="Cafe-Desconto"> 30.99</span>
+            <button class="Botao-Secundario" onclick="AtivandoProduto(5)"> Adicionar <i class="fa-solid fa-cart-shopping button"></i></button>
+        </div>
+    </div>
+</section>
+
+<!-- FIM MENU DOS CAFÉS ITENS -->
+
+<section class="produtos" id="produtos">
+    <h1 class="titulo-geral"> Nossos <span> Produtos </span></h1>
+    
+    <div class="box-container">
+        <div class="box">
+            <div class="icons-produtos">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+
+            <div class="imagem-produto">
+                <img src="Imagens-Coffe/product-1.png" alt="">
+            </div>
+            <div class="texto-produto">
+                <h3> Fresh Coffe</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="preso">R$ 20,00 <span>15,00</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons-produtos">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+
+            <div class="imagem-produto">
+                <img src="Imagens-Coffe/product-2.png" alt="">
+            </div>
+            <div class="texto-produto">
+                <h3> Fresh Coffe</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="preso">R$ 20,00 <span>15,00</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons-produtos">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+
+            <div class="imagem-produto">
+                <img src="Imagens-Coffe/product-3.png" alt="">
+            </div>
+            <div class="texto-produto">
+                <h3> Fresh Coffe</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="preso">R$ 20,00 <span>15,00</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sessão de Comentários Início  -->
+
+<section class="comentarios" id="comentarios">
+    <h1 class="titulo-geral"> Comentários dos consumidores </h1>
+
+    <div class="box-container">
+        <div class="box">
+            <img src="Imagens-Coffe/quote-img.png" alt="" class="qoute">
+            <p> Realmente nunca imaginei que a qualidade do café poderia me trazer tantos resultados assim programado, e para além disso, me tornei um amante de café!</p>
+            <img src="Imagens-Coffe/pic-1.png"  class="foto-perfil" alt="">
+            <h3 class="nome-usuarios"> Evandro Melos </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="Imagens-Coffe/quote-img.png" alt="" class="qoute">
+            <p> Quem nunca ficou a madrugada toda para resolver os bugs do código. Essa experiência se torna muito mais agradável e menos estressante quando acompanhada por um ótimo café</p>
+            <img src="Imagens-Coffe/pic-2.png"  class="foto-perfil" alt="">
+            <h3 class="nome-usuarios"> Lirassa Silva </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="Imagens-Coffe/quote-img.png" alt="" class="qoute">
+            <p>Um ótimo café artesanal, para aqueles que tem dúvida sugiro que experimentem o quanto antes, porque, com toda certeza, vão se surpreender pela qualidade</p>
+            <img src="Imagens-Coffe/pic-3.png"  class="foto-perfil" alt="">
+            <h3 class="nome-usuarios"> Gustavo Costa </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contato" id="contato">
+    <h1 class="titulo-geral"> Entre em Contato </h1>
+
+    <div class="row">
+        <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15076.897772365553!2d72.83196972782396!3d19.14165029280292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63aceef0c69%3A0x2aa80cf2287dfa3b!2sJogeshwari%20West%2C%20Bombaim%2C%20Maharashtra%20400047%2C%20%C3%8Dndia!5e0!3m2!1spt-BR!2sbr!4v1646689529892!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+
+        <form action="">
+            <h3> Insira as informações </h3>
+            <div class="input-box">
+                <span class="fas fa-user"></span>
+                <input type="text" placeholder="Nome">
+            </div>
+            <div class="input-box">
+                <span class="fas fa-envelope"></span>
+                <input type="email" placeholder="Email">
+            </div>
+            <div class="input-box">
+                <span class="fas fa-phone"></span>
+                <input type="number" placeholder="Number">
+            </div>
+            <button class="Botao-Principal"> Entrar em contato </button>
+        </form>
+    </div>
+</section>
+<!-- Sessão de Comentários Final -->
+
+<!-- Sessão de blog inicializada  -->
+
+<section class="blogs" id="blogs">
+
+    <h1 class="titulo-geral"> Siga nosso <span> Blog </span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="image">
+                <img src="Imagens-Coffe/blog-1.jpeg" alt="">
+            </div>
+            <div class="content">
+                <a href="#" class="title">Um café doce e saboroso</a>
+                <span>Data da Publicação 22/02/2022 </span>
+                <p> Saiba os benefícios do café artesanal </p>
+                <a href="#" class="Botao-Principal">Leia mais</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="Imagens-Coffe/blog-2.jpeg" alt="">
+            </div>
+            <div class="content">
+                <a href="#" class="title">Um café doce e saboroso</a>
+                <span>Data da Publicação 22/02/2022 </span>
+                <p> Veja como funciona o nosso processo de moagem dos grãos </p>
+                <a href="#" class="Botao-Principal">Leia mais</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="Imagens-Coffe/blog-3.jpeg" alt="">
+            </div>
+            <div class="content">
+                <a href="#" class="title">Um café doce e saboroso</a>
+                <span>Data da Publicação 22/02/2022 </span>
+                <p> Você sabia que temos metas sustentáveis em nossas produções?</p>
+                <a href="#" class="Botao-Principal">Leia mais</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sessão de blog finalizada -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="compartilhar">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-linkedin"></a>
+        <a href="#" class="fab fa-pinterest"></a>
+    </div>
+
+    <div class="links">
+        <a href="#">Home</a>
+        <a href="#">Sobre nós</a>
+        <a href="#">Menu</a>
+        <a href="#">Produtos</a>
+        <a href="#">Avaliações</a>
+        <a href="#">Contato</a>
+        <a href="#">Blog</a>
+    </div>
+
+</section>
+
+<!-- footer section ends -->
+
+</body>
+</html>

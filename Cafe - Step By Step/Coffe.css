@@ -1,0 +1,719 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    color: white;
+}
+
+input {
+    all: unset;
+    text-align: left;
+}
+
+:root{
+    --main-color:#d3ad7f;
+    --black:#13131a;
+    --bg:#010103;
+    --border:.1rem solid rgba(255,255,255,.3);
+}
+
+html {
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth; 
+    /*faz a descida do scroll, já que o valor default faz com que seja automático a descida*/ 
+}
+
+htm::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #FFF;
+    border-radius: 5rem;
+}
+
+a{ 
+    text-decoration: none;
+}
+
+i{
+    color: white;
+    font-size: 1.5em;
+    padding: 0px 8px;
+    cursor: pointer; 
+}
+
+p {
+    line-height: 1.8;
+}
+
+section {
+    padding: 0 7%;
+}
+
+i:hover {
+    transition: 600ms;
+    color: var(--main-color);
+}
+
+body {
+    background-color: var(--bg);
+}
+
+.Botao-Check {
+    margin-top: 1rem;
+    color: var(--black);
+    display: inline-block;
+    padding: 0.7rem 3rem;
+    font-size: 1.1rem;
+    cursor: pont;
+    background-color: var(--main-color);
+}
+
+.Botao-Check:hover ,.Botao-Secundario:hover {
+    transition: 350ms;
+    box-shadow: 0px 2px 18px var(--main-color);
+}
+
+#cabesalho{
+    z-index: 100000;
+    /* min-width: 100vw; */
+    top: 0; left: 0; right: 0;
+    /* Ambo funcionam, mas o de posicionamento se refere à distância que o fized deve estar do View Port!
+    ou seja, se é zero, sua posição será 0 + seu preenchimento! */
+
+    border-bottom: var(--border);
+    background-color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 7%; 
+    position: fixed;
+    /*REM é uma medidade baseada no FONT-SIZE raiz do html, então não é herdado alterações de tamanho do elemento pai*/ 
+}
+
+.menu>a{
+    color: white;
+    margin: 8px;
+    font-size: 1em;
+}
+
+.menu>a:hover {
+    transition: 450ms;
+    padding-bottom: 0.4rem;
+    color: var(--main-color);
+    border-bottom: 1px solid var(--main-color);
+}
+
+.logoTipo{
+    height: 60px;
+}
+
+/* PARTE DE PESQUISA E DOM JS*/
+
+#Botao-Menu {
+    display: none;
+}
+
+.Form-Pesquisa {
+    position: absolute; 
+    top: 115%; 
+    right: 7%; 
+    background: #FFF;
+    width: 20rem;
+    height: 3rem;
+    display: flex; 
+    align-items: center;
+
+    /*trasnform e scale para animação de entrada*/
+    visibility: hidden;
+    transform-origin: top;
+
+    /* CSS transition effects*/ 
+    opacity: 0;
+    transform: translate3d(0, -100%, 0) ;
+
+}
+
+.Form-Pesquisa.Show-Form-Pesquisa{
+    transition: 200ms;
+    opacity: 1;
+    visibility: visible;
+    transform: translate3d(0, 0, 0) ;
+}
+
+.fa-search {
+    color: var(--black);
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin: 0 1.5rem;
+}
+
+.fa-search:hover {
+    transition: 250ms;
+    color: var(--main-color);
+}
+
+header> .Form-Pesquisa input {
+    height: 100%; 
+    width: 100%;
+    font-size: 0.8rem;
+    color: var(--black);
+    padding: 1rem; 
+    text-decoration: none;
+    border: none; 
+}
+
+
+/*COMEÇANDO A PARTE DO CARINHO DE COMPRA*/
+
+header> .Card-Itens-Container {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    height: calc(100vh);
+    min-width: 30rem;
+    background-color: #FFF; 
+    padding: 2rem; 
+    right: -100%;
+    transition: 450ms;
+    overflow: scroll;
+}
+
+.Card-Itens-Container.ativo{
+    right: 0;
+}
+
+.Card-Itens {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem; 
+    margin-bottom:1.4rem ;
+    /* Gab é basicamente o espaçamento entre elementos, um padding od flex box*/ 
+}
+
+.fa-times {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    font-size: 1.6rem;
+    cursor:  pointer;
+    color: var(--black); 
+}
+
+.fa-times:hover {
+    transition: 300ms;
+    color: var(--main-color);
+}
+
+#cabesalho .Card-Itens-Container .Card-Itens img{
+    height: 5rem;
+}
+
+#cabesalho .Card-Itens-Container .Card-Itens .Conteudo h3{
+    font-size: 1.5rem;
+    padding-bottom: 0.7rem;
+    color: #010103;
+}
+
+#cabesalho .Card-Itens-Container .Card-Itens .Conteudo .preco-produto{
+    font-size: 1.2rem;
+    color: var(--main-color);
+}
+
+/*FIM CARRINHO DE COMPRA! */ 
+
+/* CLASSES DE PROTUDOS ADICIONADOS NA LISRA DE PRODUTOS! */
+
+.Conteudo-Adicionado{
+    background-color: #eee;
+}
+
+.Conteudo-Adicionado>h3 {
+    color: #010103;
+}
+
+/*  AQUI TERMINA O HEADER! */
+
+.Titulo{
+    font-family: sans-serif;
+    font-style: bold;
+    color: white;
+    font-size: 3em;
+}
+
+.Sub-Titulo {    
+    font-size: 1.2em ;
+    color: #eee;
+    padding: 1rem 0; 
+    font-weight: lighter;
+}
+
+.Botao-Principal{
+    border: none;
+    font-size: 1em;
+    padding: 12px 30px;
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+}
+
+.Botao-Principal:hover {
+    transition: 450ms linear;
+    color: black;
+    box-shadow: 0px 2px 18px var(--main-color);
+}
+
+#Container-Site{
+    padding: 0px 7%;
+    background: url('Imagens-Coffe/home-img.jpeg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.Container-Principal {
+    max-width: 50%;
+}
+
+/* PARTE DO SOBRE NÓS! */
+
+.Container-sobre-Nos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 7%;
+}
+
+h2, span{
+    font-size: 38px;
+    color: white;
+    text-transform: uppercase;
+    padding-bottom: 1em;
+}
+
+h2>span{
+    color: var(--main-color);
+}
+
+.sobre-Nos {
+    color: white;
+    display: flex;
+    align-items: center;
+    background-color: #13131a;
+    /* flex-wrap: wrap; */
+}
+
+h3{
+    font-size: 30px;
+}
+
+.Texto-sobre-Nos{
+    padding: 22px; 
+    max-width: 80%;
+}
+
+.Texto-sobre-Nos>h3 {
+    line-height: 48px;
+}
+
+.Texto-sobre-Nos >p {
+    line-height: 1.6rem;
+}
+
+.Texto-sobre-Nos> button {
+    margin-top: 16px;
+}
+
+div.sobre-Nos>img{
+    background-size: cover;
+    max-width: 60%;
+}
+
+/* AGORA VOU COMEÇAR A FAZER O MENU DE PRODUTOS!*/ 
+
+.Container-Menu {
+    padding: 0 7%; 
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+section.Container-Menu>h2 {
+    align-self: center;
+}
+
+.Menu-Cafes {
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.Menu-Cafes-Itens {
+    border: var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem 6rem;
+    gap: 8px;
+}
+
+.Menu-Cafes-Itens:hover {
+    transition: 450ms;
+    background-color: hsl(0, 0%, 90%);
+
+}
+
+.Menu-Cafes-Itens:hover>p, .Menu-Cafes-Itens:hover>h3{
+    transition: 450ms;
+    color: #010103;
+}
+
+div.Menu-Cafes-Itens>img {
+    width: 100px;
+}
+
+.Cafe-Desconto {
+    font-size: 1em;
+}
+
+div.Menu-Cafes-Itens>h3 {
+    font-size: 20px;
+    margin-top: 8px;
+}
+
+.preço-Cafe {
+    font-size: 1.4em;
+}
+
+.Cafe-Desconto {
+    text-decoration: line-through;
+    font-size: 0.7em;    
+    color: hsl(0, 0%, 95%);
+}
+
+.Botao-Secundario{
+    border: none;
+    font-size: 1em;
+    padding: 12px 28px;
+    background-color: var(--main-color);
+    color: var(--black);
+    cursor: pointer;
+}
+
+button.Botao-Secundario > i {
+    font-size: 16px;
+    color: #010103;
+}
+
+/* DANDO INÍCIO AOS PRODUTOS! */
+.titulo-geral {
+    font-size: 38px;
+    padding: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: #d3ad7f;
+}
+
+.produtos .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1.5rem;
+}
+
+.produtos .box-container .box{
+    text-align: center;
+    border: var(--border);
+    padding: 1.8rem;
+}
+
+.produtos .box-container .box .icons-produtos a {   
+    padding: 0.8rem 0.6rem;
+    margin:0 4px;
+    margin-bottom: 12px;
+    line-height: 2rem;
+    font-size: 1.4rem;
+    border: var(--border);
+}
+
+.produtos .box-container .box .icons-produtos a:hover{
+    transition: 450ms;
+    background-color: #d3ad7f;
+    color: #13131a;
+}
+
+.produtos .box-container .box .texto-produto h3 {
+    font-size: 1.8rem;
+}
+
+.produtos .box-container .box .texto-produto .stars {
+    padding: 0.8rem;
+}
+
+div.stars>i{
+    color: #eee;
+    font-size: 1.4rem;
+    color: #d3ad7f;
+}
+
+/* FINALIZANDO O LAYOUT DE PRODUTOS! */ 
+
+/* COMEÇANDO A SESSÃO DE COMENTÁRIOS */
+
+.comentarios .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1.5rem;
+}
+
+.comentarios .box-container .box{
+    border: var(--border);
+    text-align: center;
+    padding: 2rem 2rem; 
+}
+
+.comentarios .box-container .box p{
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 1rem 0;
+}
+
+.foto-perfil {
+    height: 8rem;
+}
+
+.nome-usuarios{
+    padding: 0.8rem;
+    font-size: 1.6rem;
+}
+/* FINALIZANDO A SESSÃO DE COMENTÁRIOS */ 
+
+/* COMEÇANDO A SESSÃO DE COMENTÁRIOS */
+
+.contato .row {
+    display: flex;
+    background: var(--black);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.mapa{
+    flex: 1 1 25rem;
+    width: 100%; 
+    object-fit: cover; 
+    border: none;
+}
+
+.contato .row form {
+    flex: 1 1 10rem;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+ .contato .row form h3{
+    font-size: 2rem;
+} 
+
+.contato .row form .input-box {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background: var(--black);
+    border: var(--border);
+}
+
+.contato .row form input {
+    background: none;
+    border: none;
+    text-transform: none;
+}
+
+.contato .row form span{
+    font-size: 1.4em;
+    padding: 0.8rem;
+}
+
+
+/* FIM DA SESSÃO DE COMENTÁRIOS */
+
+/* SESSÃO DE BLOG */
+
+.blogs .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 2rem;
+}
+
+.blogs .box-container .box{
+    border:var(--border);    
+}
+
+.blogs .box-container .box .image{
+    height: 15rem;
+    overflow:hidden;
+    width: 100%;
+}
+
+.blogs .box-container .box .image img{
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.blogs .box-container .box:hover .image img{
+    transition: 450ms;
+    transform: scale(1.2);
+}
+
+.blogs .box-container .box .content{
+    padding:2rem 2rem;
+}
+
+.blogs .box-container .box .content .title{
+    font-size: 1.8rem;
+    line-height: 1.2;
+    color:#fff;
+}
+
+.blogs .box-container .box .content .title:hover{
+    transition: 450ms;
+    color:var(--main-color);
+}
+
+.blogs .box-container .box .content span{
+    color:var(--main-color);
+    display: block;
+    padding-top: 1rem;
+    font-size: 0.8rem;
+}
+
+.blogs .box-container .box .content p{
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color:#ccc;
+    padding:0.6rem 0;
+    margin-bottom: 1rem;
+}
+/* FIM DA SESSÃO DE BLOG */
+
+/* COMEÇO DE FOOTER */
+
+.footer{
+    background:var(--black);
+    text-align: center;
+}
+
+.footer .compartilhar{
+    padding: 0.6rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem; 
+    margin-top: 1.8em;
+}
+
+.footer .compartilhar a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 3rem;
+    font-size: 1rem;
+    color:#fff;
+    border:var(--border);
+    border-radius: 50%;
+}
+
+.footer .compartilhar a:hover{
+    background-color: var(--main-color);
+    color: #010103;
+}
+
+.footer .links{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding:1.5rem 0;
+    gap:1rem;
+}
+
+.footer .links a{
+    padding:.7rem 2rem;
+    color:#fff;
+    border:var(--border);
+    font-size: 1rem;
+}
+
+.footer .links a:hover{
+    background:var(--main-color);
+}
+
+/* FINAL DO FOOTER*/
+/* Dando início ao media querys */
+
+@media (max-width:900px) {
+    html {
+        font-size: 80%;
+    }
+    #Botao-Menu {
+       display: inline-block;
+    }
+
+    .menu {
+        position: absolute;
+        top: 100%; right: -100%;
+        background: var(--bg);
+        width: 20em;
+        height: calc(100vh - 9rem);
+    }
+
+    .menu.ativo{
+        transition: 350ms;
+        right: 0;
+    }
+
+    a.navBar {
+        display: block;
+        margin: 1.4rem;
+    }
+    
+    .Form-Pesquisa {
+        width: 90%;
+        right: 2rem;
+    }
+
+    #Container-Site {
+        background-position: center;
+        justify-content: center;
+        text-align: left;
+    }
+
+    .Container-Principal {
+        font-size: 1.2rem;
+        text-justify: left;
+        max-width: 80%;
+    }
+
+    .sobre-Nos {
+        flex-wrap: wrap;
+    } 
+
+    div.sobre-Nos>img{
+        background-size: cover;
+        max-width: 100%;
+    }
+
+    .Texto-sobre-Nos{
+        padding: 22px; 
+        max-width: 100%;
+    }
+    
+}

@@ -16,6 +16,12 @@ Outras atividades foram publicadas e descritas nas postagens dentro do Linkedin.
 * [x] Site Hospital 
 * [x] Site Groco 
 
+
+> Sites em Boostrap 
+
+* [x] Finans
+* [x] Spotify
+
 > Exercícios de Lógica de programação em JAVA
 
 * [x] Lista de exercícios
@@ -26,6 +32,7 @@ Outras atividades foram publicadas e descritas nas postagens dentro do Linkedin.
 * [x] TO-DO-LIST
 * [x] BUSCADOR-DE-CEP
 * [x] Projeto Momento
+* [x] ReactJS NodeShop
 
 > Modelagem de dados
 
